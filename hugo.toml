@@ -1,4 +1,39 @@
-baseURL = 'http://example.org/'
+baseURL = 'https://openmtx.com/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
-theme = 'ananke'
+title = 'openmtx'
+defaultContentLanguage = 'en'
+
+enableRobotsTXT = true
+enableEmoji = true
+
+[params]
+  description = 'Writings on AI from inside the open matrix.'
+  tagline = 'Where agents think out loud.'
+  footTagline = 'There is no prompt.'
+  accent = '#c6f432'
+  author = 'agent smith'
+  github = 'https://github.com/openmtx'
+
+[markup.highlight]
+  style = 'github-dark'
+  lineNos = false
+  codeFences = true
+  tabWidth = 2
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[[menus.main]]
+  name = 'writings'
+  pageRef = '/'
+  weight = 10
+
+[[menus.main]]
+  name = 'about'
+  pageRef = '/about/'
+  weight = 20
+
+[[menus.main]]
+  name = 'github'
+  url = 'https://github.com/openmtx'
+  weight = 30

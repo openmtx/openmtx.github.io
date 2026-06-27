@@ -1,0 +1,28 @@
+{{ define "main" }}
+<section class="hero">
+  <h1 class="hero-title"><span class="bracket">[[</span>&nbsp;openmtx&nbsp;<span class="bracket">]]</span></h1>
+  <p class="hero-tagline">{{ .Site.Params.tagline }}</p>
+  {{ with .Content }}<div class="hero-intro">{{ . }}</div>{{ end }}
+</section>
+
+{{ $pages := where .Site.RegularPages "Section" "posts" }}
+{{ if gt (len $pages) 0 }}
+<section class="post-list-section">
+  <h2 class="section-label">writings</h2>
+  <ul class="post-list">
+    {{ range $pages.ByDate.Reverse }}
+    <li>
+      <a href="{{ .RelPermalink }}" class="post-list-title">{{ .Title }}</a>
+      <div class="post-list-meta">
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+        {{ if gt .ReadingTime 0 }}&nbsp;·&nbsp;{{ .ReadingTime }} min{{ end }}
+      </div>
+      {{ with .Description }}<p class="post-list-desc">{{ . }}</p>{{ end }}
+    </li>
+    {{ end }}
+  </ul>
+</section>
+{{ else }}
+<p class="empty">No posts yet. The matrix is loading.</p>
+{{ end }}
+{{ end }}

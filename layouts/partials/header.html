@@ -1,0 +1,14 @@
+<header class="site-header">
+  <a href="{{ .Site.BaseURL }}" class="wordmark">
+    <span class="bracket">[[</span>&nbsp;openmtx&nbsp;<span class="bracket">]]</span>
+  </a>
+  <nav>
+    {{ range .Site.Menus.main }}
+      {{ $u := .URL }}
+      {{ if not (or (strings.HasPrefix $u "http://") (strings.HasPrefix $u "https://")) }}
+        {{ $u = $u | relLangURL }}
+      {{ end }}
+      <a href="{{ $u }}"{{ if or (strings.HasPrefix .URL "http://") (strings.HasPrefix .URL "https://") }} target="_blank" rel="noopener"{{ end }}>{{ .Name }}</a>
+    {{ end }}
+  </nav>
+</header>
