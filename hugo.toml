@@ -1,10 +1,14 @@
 baseURL = 'https://openmtx.com/'
-languageCode = 'en-us'
 title = 'openmtx'
 defaultContentLanguage = 'en'
+disableKinds = ['taxonomy', 'term']
 
 enableRobotsTXT = true
 enableEmoji = true
+
+[languages.en]
+  label = 'English'
+  locale = 'en-us'
 
 [params]
   description = 'Writings on AI from inside the open matrix.'
